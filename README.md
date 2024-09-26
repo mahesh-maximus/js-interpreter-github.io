@@ -1,2 +1,2 @@
 # js-interpreter-github.io
-A sandboxed JavaScript interpreter in JavaScript.
+A sandboxed JavaScript interpreter in JavaScript. 
