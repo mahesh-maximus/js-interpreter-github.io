@@ -7,10 +7,6 @@
 </head>
 <body>
   <h1>JS-Interpreter Demo</h1>
-
-  <p>Enter JavaScript code below, then click <em>Parse</em>.  To execute, either
-  click <em>Step</em> repeatedly, or click <em>Run</em> once.
-  Open your browser's console for errors.</p>
   <p><textarea id="code" spellcheck="false">
 var result = [];
 function fibonacci(n, output) {
@@ -31,72 +27,9 @@ alert(result.join(', '));
   </p>
 
   <p><small>
-  <script src="https://mahesh-maximus.github.io/js-interpreter-m/interpreter.js">
+  <script >
   alert('index.html script start 2')
-    var myInterpreter;
-    function initAlert(interpreter, globalObject) {
-      var wrapper = function alert(text) {
-        return window.alert(arguments.length ? text : '');
-      };
-      interpreter.setProperty(globalObject, 'alert',
-          interpreter.createNativeFunction(wrapper));
-    }
-
-    function parseButton() {
-      var code = document.getElementById('code').value;
-      myInterpreter = new Interpreter(code, initAlert);
-      disable('');
-    }
-
-    function stepButton() {
-      var stack = myInterpreter.getStateStack();
-      if (stack.length) {
-        var node = stack[stack.length - 1].node;
-        var start = node.start;
-        var end = node.end;
-      } else {
-        var start = 0;
-        var end = 0;
-      }
-      createSelection(start, end);
-      try {
-        var ok = myInterpreter.step();
-      } finally {
-        if (!ok) {
-          disable('disabled');
-        }
-      }
-    }
-
-    function runButton() {
-      disable('disabled');
-      if (myInterpreter.run()) {
-        // Async function hit.  There's more code to run.
-        setTimeout(runButton, 100);
-      }
-    }
-
-    function disable(disabled) {
-      document.getElementById('stepButton').disabled = disabled;
-      document.getElementById('runButton').disabled = disabled;
-    }
-
-    function createSelection(start, end) {
-      var field = document.getElementById('code');
-      if (field.createTextRange) {
-        var selRange = field.createTextRange();
-        selRange.collapse(true);
-        selRange.moveStart('character', start);
-        selRange.moveEnd('character', end);
-        selRange.select();
-      } else if (field.setSelectionRange) {
-        field.setSelectionRange(start, end);
-      } else if (field.selectionStart) {
-        field.selectionStart = start;
-        field.selectionEnd = end;
-      }
-      field.focus();
-    }
+    
   </script>
   </small></p>
 
