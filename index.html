@@ -7,8 +7,39 @@
 
   <script>
     
-    alert('index.html script start')
+  
     
+
+  </script>
+</head>
+<body>
+  <h1>JS-Interpreter Demo</h1>
+
+  <p>Enter JavaScript code below, then click <em>Parse</em>.  To execute, either
+  click <em>Step</em> repeatedly, or click <em>Run</em> once.
+  Open your browser's console for errors.</p>
+  <p><textarea id="code" spellcheck="false">
+var result = [];
+function fibonacci(n, output) {
+  var a = 1, b = 1, sum;
+  for (var i = 0; i &lt; n; i++) {
+    output.push(a);
+    sum = a + b;
+    a = b;
+    b = sum;
+  }
+}
+fibonacci(16, result);
+alert(result.join(', '));
+</textarea><br>
+  <button onclick="parseButton()">Parse</button>
+  <button onclick="stepButton()" id="stepButton" disabled="disabled">Step</button>
+  <button onclick="runButton()" id="runButton" disabled="disabled">Run</button>
+  </p>
+
+  <p><small>
+  <script src="https://mahesh-maximus.github.io/js-interpreter-m/interpreter.js">
+  alert('index.html script start 2')
     var myInterpreter;
     function initAlert(interpreter, globalObject) {
       var wrapper = function alert(text) {
@@ -73,39 +104,6 @@
       }
       field.focus();
     }
-  </script>
-</head>
-<body>
-  <h1>JS-Interpreter Demo</h1>
-
-  <p>Enter JavaScript code below, then click <em>Parse</em>.  To execute, either
-  click <em>Step</em> repeatedly, or click <em>Run</em> once.
-  Open your browser's console for errors.</p>
-  <p><textarea id="code" spellcheck="false">
-var result = [];
-function fibonacci(n, output) {
-  var a = 1, b = 1, sum;
-  for (var i = 0; i &lt; n; i++) {
-    output.push(a);
-    sum = a + b;
-    a = b;
-    b = sum;
-  }
-}
-fibonacci(16, result);
-alert(result.join(', '));
-</textarea><br>
-  <button onclick="parseButton()">Parse</button>
-  <button onclick="stepButton()" id="stepButton" disabled="disabled">Step</button>
-  <button onclick="runButton()" id="runButton" disabled="disabled">Run</button>
-  </p>
-
-  <p><small>
-  <script src="https://mahesh-maximus.github.io/js-interpreter-m/interpreter.js">
-  alert('index.html script start 2')
-   document.write('[ Running raw sources.');
-
-    disable('disabled');
   </script>
   </small></p>
 
