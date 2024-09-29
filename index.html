@@ -1,40 +1,19 @@
-<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>JS-Interpreter Demo</title>
-  <link href="style.css" rel="stylesheet" type="text/css">
-</head>
 <body>
-  <h1>JS-Interpreter Demo</h1>
-  <p><textarea id="code" spellcheck="false">
-var result = [];
-function fibonacci(n, output) {
-  var a = 1, b = 1, sum;
-  for (var i = 0; i &lt; n; i++) {
-    output.push(a);
-    sum = a + b;
-    a = b;
-    b = sum;
-  }
-}
-fibonacci(16, result);
-alert(result.join(', '));
-</textarea><br>
-  <button onclick="parseButton()">Parse</button>
-  <button onclick="stepButton()" id="stepButton" disabled="disabled">Step</button>
-  <button onclick="runButton()" id="runButton" disabled="disabled">Run</button>
-  </p>
 
-  <p><small>
-  <script src="https://mahesh-maximus.github.io/test-js/main.js">
-    alert("Hello! I am an alert box 2!");
-    
-  </script>
-  </small></p>
+<h2>External JavaScript</h2>
 
-  <p>Read the <a href="docs.html">JS-Interpreter documentation</a>.</p>
-  <p>Get the <a href="https://github.com/NeilFraser/JS-Interpreter">source code</a>.</p>
+<p id="demo">A Paragraph.</p>
 
+<button type="button" onclick="myFunction()">Click Me</button>
+
+<p>This example uses a full web URL to link to "myScript.js".</p>
+<p>(myFunction is stored in "myScript.js")</p>
+
+<script src="https://mahesh-maximus.github.io/test-js/main.js">
+</script>
+<script type="text/javascript" >
+ alert("Hello! I am an alert box 2 !");
+</script>
 </body>
 </html>
